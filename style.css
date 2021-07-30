@@ -1,0 +1,50 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	z-index: 1;
+}
+
+body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	/* background-image: url("https://images.unsplash.com/photo-1613771404721-1f92d799e49f");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	filter: blur(8px); */
+}
+
+#bg-image {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-image: url("https://images.unsplash.com/photo-1613771404721-1f92d799e49f");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	filter: opacity(0.6) blur(8px);
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+.pkmn_list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.pokemon_card {
+	width: 100 px;
+	margin: 20px;
+	background-color: rgba(100, 100, 100, 0.5);
+	border-radius: 20px;
+}
