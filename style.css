@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-	font-size: 5rem;
+	font-size: 3rem;
 }
 
 .pkmn_list {
@@ -40,10 +40,12 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	margin: 0 auto;
+	padding: 0;
 }
 
 .pokemon_card {
-	width: 100 px;
+	width: 300px;
 	margin: 20px;
 	/* background-color: rgba(240, 30, 30, 0.4); */
 	border-radius: 20px;
@@ -54,6 +56,10 @@ h1 {
 .image_wrapper {
 	background-color: rgba(200, 200, 200, 0.5);
 	border-radius: 50%;
+}
+
+img {
+	width: 300px;
 }
 
 .pkmn-name {
@@ -76,7 +82,7 @@ h1 {
 	z-index: 1;
 	display: none;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 1rem;
 }
 
 .hover-overlay ul {
@@ -102,4 +108,23 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
+}
+
+@media screen and (max-width: 400px) {
+	.pokemon_card {
+		width: 80vw;
+		margin: 20px 0;
+	}
+
+	img {
+		width: 80vw;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	.hover-overlay {
+		font-size: 1rem;
+	}
 }
