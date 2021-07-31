@@ -70,11 +70,36 @@ h1 {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(0, 0, 0, 0.9);
+	padding: 40px 20px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.95);
 	z-index: 1;
 	display: none;
+	text-align: center;
+	font-size: 2rem;
+}
+
+.hover-overlay ul {
+	list-style: none;
+	padding: 15% 0 0;
+	/* margin: auto 0; */
+}
+
+.hover-overlay ul li {
+	padding: 10px 20px 0;
+	text-align: left;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+.li-value {
+	color: yellow;
 }
 
 .pokemon_card:hover .hover-overlay {
-	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
 }

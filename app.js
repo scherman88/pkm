@@ -46,10 +46,23 @@ function createCard(currentPkmn) {
 		card = document.createElement("div");
 
 	const name = currentPkmn.name[0].toUpperCase() + currentPkmn.name.slice(1);
+	const color = colours[currentPkmn.types[0].type.name];
 	card.className = "pokemon_card";
 	card.dataset.pkmnId = currentPkmn.id;
 	card.innerHTML = `
-		<div class="hover-overlay"></div>
+		<div class="hover-overlay">
+			<h2 style='color:${color}'>${name}</h2>
+			<ul>
+				<li>Pokemon ID:<span class='li-value'>		#${currentPkmn.id.toString().padStart(3, "0")}</span></li>
+				<li>Height:<span class='li-value'>		${currentPkmn.height / 10}m</span></li>
+				<li>Weight:<span class='li-value'>		${currentPkmn.weight / 10}Kg</span></li>
+				<li>Type:<span class='li-value'>		${
+					currentPkmn.types[0].type.name[0].toUpperCase() +
+					currentPkmn.types[0].type.name.slice(1)
+				}</span></li>
+				<li>Base XP:<span class='li-value'>	${currentPkmn.base_experience} points</span></li>
+			</ul>
+		</div>
   	<div class="image_wrapper">
 			<img
 				src="${currentPkmn.sprites.other["official-artwork"].front_default}"
@@ -60,7 +73,7 @@ function createCard(currentPkmn) {
 			<h1>${name}</h1>
 		</div>
   `;
-	card.style.backgroundColor = colours[currentPkmn.types[0].type.name];
+	card.style.backgroundColor = color;
 	console.log("color" + currentPkmn.types[0].type.name);
 	listItem.appendChild(card);
 	pkmnList.appendChild(listItem);
