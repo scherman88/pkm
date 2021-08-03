@@ -1,5 +1,7 @@
 //DOM Elements
-const pkmnList = document.getElementById("pkmn_list");
+const pkmnList = document.getElementById("pkmn_list"),
+	searchName = document.getElementById("searchName"),
+	searchType = document.getElementById("searchType");
 
 const pokeDex = {};
 const colours = {
@@ -23,6 +25,42 @@ const colours = {
 	fairy: "#D685AD",
 };
 
+//Search
+searchName.addEventListener("keyup", (e) => {
+	let searchInput = searchName.value;
+	doSearch(searchInput, ".pkmn-name");
+	e.preventDefault();
+});
+
+searchType.addEventListener("keyup", (e) => {
+	let searchInput = searchType.value;
+	doSearch(searchInput, ".li-value");
+	e.preventDefault();
+});
+
+function doSearch(value, target) {
+	let searchList = document.querySelectorAll(target);
+	searchList.forEach((item) => {
+		console.log(item.parentElement.textContent);
+		if (target === ".pkmn-name") {
+			if (item.textContent.toLowerCase().indexOf(value.toLowerCase()) > -1) {
+				item.parentElement.parentElement.style.display = "block";
+			} else {
+				item.parentElement.parentElement.style.display = "none";
+			}
+		}
+		if (target === ".li-value" && item.parentElement.textContent.indexOf("Type") > -1) {
+			if (item.textContent.toLowerCase().indexOf(value.toLowerCase()) > -1) {
+				item.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
+					"block";
+			} else {
+				item.parentElement.parentElement.parentElement.parentElement.parentElement.style.display =
+					"none";
+			}
+		}
+	});
+}
+
 //Fetch Pokemon
 async function fetchPokemon(id, callback) {
 	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -36,7 +74,7 @@ async function pokemonList(from, to) {
 	for (let i = from; i <= to; i++) {
 		await fetchPokemon(i, createCard);
 	}
-	console.log(pokeDex);
+	// console.log(pokeDex);
 }
 
 //Create HTML Card
@@ -74,7 +112,7 @@ function createCard(currentPkmn) {
 		</div>
   `;
 	card.style.backgroundColor = color;
-	console.log("color" + currentPkmn.types[0].type.name);
+	// console.log("color" + currentPkmn.types[0].type.name);
 	listItem.appendChild(card);
 	pkmnList.appendChild(listItem);
 }

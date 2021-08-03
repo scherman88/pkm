@@ -33,6 +33,14 @@ body {
 
 h1 {
 	font-size: 3rem;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.search {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .pkmn_list {
